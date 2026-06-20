@@ -1,0 +1,17 @@
+services:
+  rails-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: sleep infinity
+    volumes:
+      - ../..:/workspaces:cached
+    depends_on:
+      - db
+  
+  db:
+    image: index.docker.io/library/postgres@sha256:f104f501cd403abdc56cd17fab81fad0b15754e8dce818e20300a17a3628700f # 14.15
+    ports:
+      - "127.0.0.1:5432:5432"
+    environment:
+      - POSTGRES_HOST_AUTH_METHOD=trust
