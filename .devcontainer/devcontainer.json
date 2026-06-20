@@ -1,0 +1,35 @@
+{
+  "dockerComposeFile": [
+    "docker-compose.yml"
+  ],
+  "service": "rails-app",
+  "runServices": [
+    
+  ],
+  "forwardPorts": [
+    3000, // Rails
+    5432 // PostgreSQL
+  ],
+  "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/rails/devcontainer/features/postgres-client:1": {},
+    "ghcr.io/devcontainers/features/node:2": {},
+    "ghcr.io/devcontainers-extra/features/apt-packages:1": {
+      "packages": [
+        "pkg-config"
+      ]
+    }
+  },
+  // Configure tool-specific properties.
+  "containerEnv": {
+    "DB_HOST": "db"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp"
+      ]
+    }
+  }
+}
