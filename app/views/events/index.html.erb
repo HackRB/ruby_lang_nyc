@@ -11,54 +11,16 @@
     </button>
     <nav class="nav__links" id="navLinks">
       <a href="#">Companies</a>
-      <a href="#events">Events</a>
+      <a href="/events">Events</a>
       <a href="https://github.com/hackrb/ruby_lang_nyc" class="nav__cta">Contribute →</a>
     </nav>
   </div>
 </header>
 
-<section class="hero">
-  <div class="hero__bg-gem" aria-hidden="true">◆</div>
-  <div class="hero__inner">
-    <div class="hero__eyebrow">
-      <!-- <span class="hero__dot"></span> -->
-      <!-- NYC Ruby Community • Est. 2018 -->
-    </div>
-    <h1 class="hero__title">
-      <span class="hero__title-line">Mapping NYC's</span>
-      <span class="hero__title-line hero__title-line--accent">Ruby Community.</span>
-    </h1>
-    <p class="hero__sub">
-      The great big city's a wonderous gem.
-    </p>
-    <div class="hero__actions">
-      <a href="https://github.com/hackrb/ruby_lang_nyc" class="btn btn--primary">Contribute</a>
-      <a href="#events" class="btn btn--ghost">See Events ↓</a>
-    </div>
-    <div class="hero__stats">
-      <!-- <div class="hero__stat"> -->
-        <!-- <span class="hero__stat-num">400+</span> -->
-        <!-- <span class="hero__stat-label">Members</span> -->
-      <!-- </div> -->
-      <!-- <div class="hero__stat-divider"></div> -->
-      <!-- <div class="hero__stat"> -->
-        <!-- <span class="hero__stat-num">52</span> -->
-        <!-- <span class="hero__stat-label">Meetups</span> -->
-      <!-- </div> -->
-      <!-- <div class="hero__stat-divider"></div> -->
-      <!-- <div class="hero__stat"> -->
-        <!-- <span class="hero__stat-num">8</span> -->
-        <!-- <span class="hero__stat-label">Years</span> -->
-      <!-- </div> -->
-    </div>
-  </div>
-</section>
-
-<section class="events" id="events">
+<section class="events" id="events" style="padding-top: calc(var(--nav-h) + var(--pad));">
   <div class="events__inner">
     <div class="events__header">
-      <h2 class="events__title">Upcoming Events</h2>
-      <a href="/events" class="events__all">All events →</a>
+      <h2 class="events__title">All Events</h2>
     </div>
     <div class="events__grid">
       <% @events.each do |event| %>
@@ -100,12 +62,6 @@
     links.classList.toggle('nav__links--open');
     toggle.classList.toggle('nav__toggle--open');
   });
-
-  document.querySelectorAll('.hero__eyebrow, .hero__title-line, .hero__sub, .hero__actions, .hero__stats')
-    .forEach((el, i) => {
-      el.style.animationDelay = `${i * 0.13}s`;
-      el.classList.add('hero-animate');
-    });
 
   const io = new IntersectionObserver((entries) => {
     entries.forEach(e => {
