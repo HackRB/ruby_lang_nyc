@@ -57,8 +57,8 @@
 <section class="companies" id="companies">
   <div class="companies__inner">
     <div class="companies__header">
-      <h2 class="companies__title">Ruby-Powered Companies</h2>
-      <p class="companies__sub">NYC companies building with Ruby</p>
+      <h2 class="companies__title">Companies</h2>
+      <p class="companies__sub">NYC companies building with Ruby.</p>
     </div>
     <div class="companies__grid">
       <% @companies.each do |company| %>
@@ -66,7 +66,7 @@
           <span class="company-card__gem">◆</span>
           <div class="company-card__body">
             <h3 class="company-card__name"><%= company[:name] %></h3>
-            <p class="company-card__role"><%= company[:role] %></p>
+            <p class="company-card__role"><%= company[:description] %></p>
           </div>
         </a>
       <% end %>
