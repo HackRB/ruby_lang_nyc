@@ -1,15 +1,62 @@
 class Company
   def self.all
     [
-      { name: "Shopify",        role: "E-Commerce Platform",   url: "https://shopify.com" },
-      { name: "GitHub",         role: "Dev Tools & Open Source", url: "https://github.com" },
-      { name: "Kickstarter",    role: "Crowdfunding",           url: "https://kickstarter.com" },
-      { name: "Squarespace",    role: "Website Builder",        url: "https://squarespace.com" },
-      { name: "Etsy",           role: "Handmade Marketplace",   url: "https://etsy.com" },
-      { name: "Stripe",         role: "Payments Infrastructure", url: "https://stripe.com" },
-      { name: "ThoughtWorks",   role: "Tech Consultancy",       url: "https://thoughtworks.com" },
-      { name: "Recurse Center", role: "Coding Retreat",         url: "https://recurse.com" },
-      { name: "Braintree",      role: "Payment Solutions",      url: "https://braintreepayments.com" }
+      {
+        name: "Shopify",
+        description: "E-Commerce Platform",
+        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
+        home_page_url: "https://shopify.com",
+        careers_page_url: "https://www.shopify.com/careers"
+      },
+      {
+        name: "GitHub",
+        description: "Dev Tools & Open Source",
+        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
+        home_page_url: "https://github.com",
+        careers_page_url: "https://www.github.careers/careers-home"
+      },
+      {
+        name: "Shopify",
+        description: "E-Commerce Platform",
+        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
+        home_page_url: "https://shopify.com",
+        careers_page_url: "https://www.shopify.com/careers"
+      },
+      {
+        name: "GitHub",
+        description: "Dev Tools & Open Source",
+        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
+        home_page_url: "https://github.com",
+        careers_page_url: "https://www.github.careers/careers-home"
+      },
+      {
+        name: "Shopify",
+        description: "E-Commerce Platform",
+        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
+        home_page_url: "https://shopify.com",
+        careers_page_url: "https://www.shopify.com/careers"
+      },
+      {
+        name: "GitHub",
+        description: "Dev Tools & Open Source",
+        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
+        home_page_url: "https://github.com",
+        careers_page_url: "https://www.github.careers/careers-home"
+      },
+      {
+        name: "Shopify",
+        description: "E-Commerce Platform",
+        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
+        home_page_url: "https://shopify.com",
+        careers_page_url: "https://www.shopify.com/careers"
+      },
+      {
+        name: "GitHub",
+        description: "Dev Tools & Open Source",
+        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
+        home_page_url: "https://github.com",
+        careers_page_url: "https://www.github.careers/careers-home"
+      }
     ]
   end
 end
