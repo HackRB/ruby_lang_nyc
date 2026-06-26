@@ -62,7 +62,7 @@
     </div>
     <div class="companies__grid">
       <% @companies.each do |company| %>
-        <a href="<%= company[:url] %>" class="company-card reveal" target="_blank" rel="noopener noreferrer">
+        <a href="<%= company[:home_page_url] %>" class="company-card reveal" target="_blank" rel="noopener noreferrer">
           <span class="company-card__gem">◆</span>
           <div class="company-card__body">
             <h3 class="company-card__name"><%= company[:name] %></h3>
