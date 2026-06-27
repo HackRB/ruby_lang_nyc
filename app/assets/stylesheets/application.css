@@ -295,6 +295,9 @@ a { color: inherit; text-decoration: none; }
   padding: 0 2rem;
 }
 .companies__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
   margin-bottom: 3rem;
 }
 .companies__title {
@@ -302,7 +305,6 @@ a { color: inherit; text-decoration: none; }
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   font-weight: 800;
   letter-spacing: -0.03em;
-  margin-bottom: 0.4rem;
 }
 .companies__sub {
   font-size: 0.92rem;
@@ -613,4 +615,5 @@ a { color: inherit; text-decoration: none; }
   .companies__grid { grid-template-columns: 1fr; }
   .events__grid   { grid-template-columns: 1fr; }
   .events__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .companies__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
