@@ -1,5 +1,3 @@
-<% tag_class = { "Workshop" => "event-card__tag--workshop", "Hybrid" => "event-card__tag--hybrid", "Social" => "event-card__tag--social" } %>
-
 <header class="nav">
   <div class="nav__inner">
     <a href="/" class="nav__logo">
@@ -17,24 +15,28 @@
   </div>
 </header>
 
-<section class="events" id="events" style="padding-top: calc(var(--nav-h) + var(--pad));">
-  <div class="events__inner">
-    <div class="events__header">
-      <h2 class="events__title">All Events</h2>
+<section class="companies" id="companies" style="padding-top: calc(var(--nav-h) + var(--pad));">
+  <div class="companies__inner">
+    <div class="companies__header">
+      <h2 class="companies__title">Companies</h2>
     </div>
-    <div class="events__grid">
-      <% @events.each do |event| %>
-        <article class="event-card reveal">
-          <div class="event-card__date">
-            <span class="event-card__month"><%= event[:date].strftime('%b').upcase %></span>
-            <span class="event-card__day"><%= event[:date].strftime('%d') %></span>
+    <div class="companies__grid">
+      <% @companies.each do |company| %>
+        <div class="company-card reveal">
+          <div class="company-card__logo">
+            <%= image_tag company[:logo_url], alt: company[:name] %>
           </div>
-          <div class="event-card__body">
-            <span class="event-card__tag <%= tag_class[event[:category]] %>"><%= event[:category] %></span>
-            <h3 class="event-card__title"><%= event[:title] %></h3>
-            <p class="event-card__location"><%= event[:location] %></p>
+          <div class="company-card__right">
+            <div class="company-card__body">
+              <h3 class="company-card__name"><%= company[:name] %></h3>
+              <p class="company-card__desc"><%= company[:description] %></p>
+            </div>
+            <div class="company-card__links">
+              <a href="<%= company[:home_page_url] %>" class="company-card__link" target="_blank" rel="noopener noreferrer">Website →</a>
+              <a href="<%= company[:careers_page_url] %>" class="company-card__link company-card__link--careers" target="_blank" rel="noopener noreferrer">Careers →</a>
+            </div>
           </div>
-        </article>
+        </div>
       <% end %>
     </div>
   </div>
