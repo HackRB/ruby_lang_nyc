@@ -2,60 +2,52 @@ class Person
   def self.all
     [
       {
-        name: "Shopify",
-        description: "E-Commerce Platform",
-        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
-        website_url: "https://shopify.com",
-        blog_url: "https://blog.shopify.com/"
+        name: "Avital Oliver",
+        role: "Staff Engineer",
+        company: "Stripe",
+        avatar_url: "https://ui-avatars.com/api/?name=Avital+Oliver&background=e8002d&color=fff&size=128",
+        github_url: "https://github.com/avitaln",
+        website_url: nil
       },
       {
-        name: "GitHub",
-        description: "Dev Tools & Open Source",
-        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
-        website_url: "https://github.com",
-        blog_url: "https://blog.github.com/"
+        name: "Jeremy Evans",
+        role: "Open Source Developer",
+        company: "Sequel / Roda",
+        avatar_url: "https://ui-avatars.com/api/?name=Jeremy+Evans&background=1a1a2e&color=fff&size=128",
+        github_url: "https://github.com/jeremyevans",
+        website_url: "https://code.jeremyevans.net"
       },
       {
-        name: "Shopify",
-        description: "E-Commerce Platform",
-        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
-        website_url: "https://shopify.com",
-        blog_url: "https://blog.shopify.com/"
+        name: "Nadia Odunayo",
+        role: "Founder",
+        company: "The StoryGraph",
+        avatar_url: "https://ui-avatars.com/api/?name=Nadia+Odunayo&background=e8002d&color=fff&size=128",
+        github_url: "https://github.com/nodunayo",
+        website_url: nil
       },
       {
-        name: "GitHub",
-        description: "Dev Tools & Open Source",
-        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
-        website_url: "https://github.com",
-        blog_url: "https://blog.github.com/"
+        name: "Sam Phippen",
+        role: "Senior Engineer",
+        company: "Honeybadger",
+        avatar_url: "https://ui-avatars.com/api/?name=Sam+Phippen&background=1a1a2e&color=fff&size=128",
+        github_url: "https://github.com/samphippen",
+        website_url: nil
       },
       {
-        name: "Shopify",
-        description: "E-Commerce Platform",
-        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
-        website_url: "https://shopify.com",
-        blog_url: "https://blog.shopify.com/"
+        name: "Eileen Uchitelle",
+        role: "Principal Engineer",
+        company: "Shopify",
+        avatar_url: "https://ui-avatars.com/api/?name=Eileen+Uchitelle&background=e8002d&color=fff&size=128",
+        github_url: "https://github.com/eileencodes",
+        website_url: nil
       },
       {
-        name: "GitHub",
-        description: "Dev Tools & Open Source",
-        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
-        website_url: "https://github.com",
-        blog_url: "https://blog.github.com/"
-      },
-      {
-        name: "Shopify",
-        description: "E-Commerce Platform",
-        logo_url: "https://cdn.freebiesupply.com/logos/large/2x/shopify-logo-png-transparent.png",
-        website_url: "https://shopify.com",
-        blog_url: "https://blog.shopify.com/"
-      },
-      {
-        name: "GitHub",
-        description: "Dev Tools & Open Source",
-        logo_url: "https://images.seeklogo.com/logo-png/30/2/github-logo-png_seeklogo-304612.png",
-        website_url: "https://github.com",
-        blog_url: "https://blog.github.com/"
+        name: "Daniel Colson",
+        role: "Senior Engineer",
+        company: "GitHub",
+        avatar_url: "https://ui-avatars.com/api/?name=Daniel+Colson&background=1a1a2e&color=fff&size=128",
+        github_url: "https://github.com/composerinteralia",
+        website_url: nil
       }
     ]
   end
