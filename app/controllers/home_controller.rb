@@ -1,7 +1,9 @@
 class HomeController < ApplicationController
   def index
-    @events = Event.all
+    @people = Person.all
     @companies = Company.all
+    @events = Event.all
+
 
     render "index"
   end
