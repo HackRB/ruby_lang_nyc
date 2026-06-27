@@ -70,9 +70,11 @@
             <p class="person-card__role"><%= person[:role] %></p>
             <p class="person-card__company"><%= person[:company] %></p>
             <div class="person-card__links">
-              <a href="<%= person[:github_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">GitHub →</a>
-              <% if person[:website_url] %>
-                <a href="<%= person[:website_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">Website →</a>
+              <% if person[:blog_url] %>
+                <a href="<%= person[:blog_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">Blog →</a>
+              <% end %>
+              <% if person[:github_url] %>
+                <a href="<%= person[:github_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">GitHub →</a>
               <% end %>
             </div>
           </div>
