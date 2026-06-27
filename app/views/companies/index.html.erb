@@ -1,0 +1,80 @@
+<header class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo">
+      <span class="nav__gem">◆</span>
+      <span class="nav__name">Ruby Lang NYC</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="/companies">Companies</a>
+      <a href="/events">Events</a>
+      <a href="https://github.com/hackrb/ruby_lang_nyc" class="nav__cta">Contribute →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="companies" id="companies" style="padding-top: calc(var(--nav-h) + var(--pad));">
+  <div class="companies__inner">
+    <div class="companies__header">
+      <h2 class="companies__title">Companies</h2>
+      <p class="companies__sub">NYC companies building with Ruby.</p>
+    </div>
+    <div class="companies__grid">
+      <% @companies.each do |company| %>
+        <div class="company-card reveal">
+          <div class="company-card__logo">
+            <%= image_tag company[:logo_url], alt: company[:name] %>
+          </div>
+          <div class="company-card__right">
+            <div class="company-card__body">
+              <h3 class="company-card__name"><%= company[:name] %></h3>
+              <p class="company-card__desc"><%= company[:description] %></p>
+            </div>
+            <div class="company-card__links">
+              <a href="<%= company[:home_page_url] %>" class="company-card__link" target="_blank" rel="noopener noreferrer">Website →</a>
+              <a href="<%= company[:careers_page_url] %>" class="company-card__link company-card__link--careers" target="_blank" rel="noopener noreferrer">Careers →</a>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="nav__gem">◆</span>
+      <span>Ruby Lang NYC</span>
+    </div>
+    <p class="footer__tagline">By Hack Ruby.</p>
+    <div class="footer__links">
+      <a href="https://luma.com/hackruby">Luma</a>
+      <a href="https://github.com/hackrb">GitHub</a>
+    </div>
+    <p class="footer__copy">© 2026 Ruby Lang NYC. Built with Ruby on Rails.</p>
+  </div>
+</footer>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  const toggle = document.getElementById('navToggle');
+  const links  = document.getElementById('navLinks');
+  toggle?.addEventListener('click', () => {
+    links.classList.toggle('nav__links--open');
+    toggle.classList.toggle('nav__toggle--open');
+  });
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = Array.from(e.target.parentNode.children).indexOf(e.target);
+        e.target.style.transitionDelay = `${(idx % 3) * 0.08}s`;
+        e.target.classList.add('revealed');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.reveal').forEach(c => io.observe(c));
+</script>
