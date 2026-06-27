@@ -491,7 +491,7 @@ a { color: inherit; text-decoration: none; }
   line-height: 1.2;
   margin-bottom: 0.15rem;
 }
-.person-card__role {
+.person-card__description {
   font-size: 0.78rem;
   font-weight: 600;
   color: var(--text-muted);
