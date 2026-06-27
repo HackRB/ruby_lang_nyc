@@ -492,7 +492,6 @@ a { color: inherit; text-decoration: none; }
 }
 .person-card__description {
   font-size: 0.78rem;
-  font-weight: 600;
   color: var(--text-muted);
 }
 .person-card__company {
