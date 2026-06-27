@@ -480,7 +480,7 @@ a { color: inherit; text-decoration: none; }
   flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 0.15rem;
+  gap: 0.5rem;
 }
 .person-card__name {
   font-family: var(--font-display);
@@ -489,7 +489,6 @@ a { color: inherit; text-decoration: none; }
   letter-spacing: -0.01em;
   color: var(--text);
   line-height: 1.2;
-  margin-bottom: 0.15rem;
 }
 .person-card__description {
   font-size: 0.78rem;
