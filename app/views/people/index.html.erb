@@ -1,0 +1,84 @@
+<header class="nav">
+  <div class="nav__inner">
+    <a href="/" class="nav__logo" data-turbo="false">
+      <span class="nav__gem">◆</span>
+      <span class="nav__name">Ruby Lang NYC</span>
+    </a>
+    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav__links" id="navLinks">
+      <a href="/devs" data-turbo="false">Devs</a>
+      <a href="/companies" data-turbo="false">Companies</a>
+      <a href="/events" data-turbo="false">Events</a>
+      <a href="https://github.com/hackrb/ruby_lang_nyc" class="nav__cta">Contribute →</a>
+    </nav>
+  </div>
+</header>
+
+<section class="people" id="people" style="padding-top: calc(var(--nav-h) + var(--pad));">
+  <div class="people__inner">
+    <div class="people__header">
+      <h2 class="people__title">Devs</h2>
+    </div>
+    <div class="people__grid">
+      <% @people.each do |person| %>
+        <div class="person-card reveal">
+          <div class="person-card__avatar">
+            <%= image_tag person[:avatar_url], alt: person[:name] %>
+          </div>
+          <div class="person-card__body">
+            <h3 class="person-card__name"><%= person[:name] %></h3>
+            <p class="person-card__description"><%= person[:description] %></p>
+            <div class="person-card__links">
+              <% if person[:blog_url] %>
+                <a href="<%= person[:blog_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">Blog →</a>
+              <% end %>
+              <% if person[:github_url] %>
+                <a href="<%= person[:github_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">GitHub →</a>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer__inner">
+    <div class="footer__brand">
+      <span class="nav__gem">◆</span>
+      <span>Ruby Lang NYC</span>
+    </div>
+    <p class="footer__tagline">By Hack Ruby.</p>
+    <div class="footer__links">
+      <a href="https://luma.com/hackruby">Luma</a>
+      <a href="https://github.com/hackrb">GitHub</a>
+    </div>
+    <p class="footer__copy">© 2026 Ruby Lang NYC. Built with Ruby on Rails.</p>
+  </div>
+</footer>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  (function() {
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      links.classList.toggle('nav__links--open');
+      toggle.classList.toggle('nav__toggle--open');
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(e.target.parentNode.children).indexOf(e.target);
+          e.target.style.transitionDelay = `${(idx % 3) * 0.08}s`;
+          e.target.classList.add('revealed');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(c => io.observe(c));
+  })()
+</script>
