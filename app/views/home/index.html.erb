@@ -107,8 +107,8 @@
       <% @events.each do |event| %>
         <article class="event-card reveal">
           <div class="event-card__date">
-            <span class="event-card__month"><%= event[:date].strftime('%b').upcase %></span>
-            <span class="event-card__day"><%= event[:date].strftime('%d') %></span>
+            <span class="event-card__month"><%= Time.parse(event[:date]).strftime('%b').upcase %></span>
+            <span class="event-card__day"><%= Time.parse(event[:date]).strftime('%d') %></span>
           </div>
           <div class="event-card__body">
             <span class="event-card__tag <%= tag_class[event[:category]] %>"><%= event[:category] %></span>
