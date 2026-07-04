@@ -1,27 +1,11 @@
 <% tag_class = { "Workshop" => "event-card__tag--workshop", "Hybrid" => "event-card__tag--hybrid", "Social" => "event-card__tag--social" } %>
 
-<header class="nav">
-  <div class="nav__inner">
-    <a href="/" class="nav__logo" data-turbo="false">
-      <span class="nav__gem">◆</span>
-      <span class="nav__name">Ruby Lang NYC</span>
-    </a>
-    <button class="nav__toggle" id="navToggle" aria-label="Toggle menu">
-      <span></span><span></span><span></span>
-    </button>
-    <nav class="nav__links" id="navLinks">
-      <a href="/devs" data-turbo="false">Devs</a>
-      <a href="/companies" data-turbo="false">Companies</a>
-      <a href="/events" data-turbo="false">Events</a>
-      <a href="https://github.com/hackrb/ruby_lang_nyc" class="nav__cta">Contribute →</a>
-    </nav>
-  </div>
-</header>
+<%= render 'navbar' %>
 
 <section class="events" id="events" style="padding-top: calc(var(--nav-h) + var(--pad));">
   <div class="events__inner">
     <div class="events__header">
-      <h2 class="events__title">All Events</h2>
+      <h2 class="events__title">Upcoming Events</h2>
     </div>
     <div class="events__grid">
       <% @events.each do |event| %>
@@ -41,20 +25,7 @@
   </div>
 </section>
 
-<footer class="footer">
-  <div class="footer__inner">
-    <div class="footer__brand">
-      <span class="nav__gem">◆</span>
-      <span>Ruby Lang NYC</span>
-    </div>
-    <p class="footer__tagline">By Hack Ruby.</p>
-    <div class="footer__links">
-      <a href="https://luma.com/hackruby">Luma</a>
-      <a href="https://github.com/hackrb">GitHub</a>
-    </div>
-    <p class="footer__copy">© 2026 Ruby Lang NYC. Built with Ruby on Rails.</p>
-  </div>
-</footer>
+<%= render 'footer' %>
 
 <script nonce="<%= request.content_security_policy_nonce %>">
   (function() {
