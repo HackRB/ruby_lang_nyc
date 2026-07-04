@@ -114,6 +114,9 @@
             <span class="event-card__tag <%= tag_class[event[:category]] %>"><%= event[:category] %></span>
             <h3 class="event-card__title"><%= event[:title] %></h3>
             <p class="event-card__location"><%= event[:location] %></p>
+            <% if event[:url].present? %>
+              <a href="<%= event[:url] %>" class="event-card__link" target="_blank" rel="noopener noreferrer">Details →</a>
+            <% end %>
           </div>
         </article>
       <% end %>
