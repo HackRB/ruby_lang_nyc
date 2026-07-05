@@ -55,10 +55,10 @@
             <h3 class="person-card__name"><%= person[:name] %></h3>
             <p class="person-card__description"><%= person[:description] %></p>
             <div class="person-card__links">
-              <% if person[:blog_url] %>
+              <% if person[:blog_url].present? %>
                 <a href="<%= person[:blog_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">Blog →</a>
               <% end %>
-              <% if person[:github_url] %>
+              <% if person[:github_url].present? %>
                 <a href="<%= person[:github_url] %>" class="person-card__link" target="_blank" rel="noopener noreferrer">GitHub →</a>
               <% end %>
             </div>
@@ -107,13 +107,18 @@
       <% @events.each do |event| %>
         <article class="event-card reveal">
           <div class="event-card__date">
-            <span class="event-card__month"><%= event[:date].strftime('%b').upcase %></span>
-            <span class="event-card__day"><%= event[:date].strftime('%d') %></span>
+            <span class="event-card__month"><%= Time.parse(event[:date]).strftime('%b').upcase %></span>
+            <span class="event-card__day"><%= Time.parse(event[:date]).strftime('%d') %></span>
           </div>
           <div class="event-card__body">
             <span class="event-card__tag <%= tag_class[event[:category]] %>"><%= event[:category] %></span>
             <h3 class="event-card__title"><%= event[:title] %></h3>
             <p class="event-card__location"><%= event[:location] %></p>
+            <% if event[:url].present? %>
+              <div>
+                <a href="<%= event[:url] %>" class="event-card__link" target="_blank" rel="noopener noreferrer">Details →</a>
+              </div>
+            <% end %>
           </div>
         </article>
       <% end %>

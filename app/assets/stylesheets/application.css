@@ -645,6 +645,25 @@ a { color: inherit; text-decoration: none; }
   color: var(--text-muted);
 }
 .event-card__speaker { font-weight: 600; }
+.event-card__link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
+  border-radius: 5px;
+  padding: 0.28rem 0.65rem;
+  text-decoration: none;
+  transition: color 0.2s, border-color 0.2s, background 0.2s;
+}
+.event-card__link:hover {
+  color: var(--text);
+  border-color: var(--text-muted);
+  background: var(--surface-2);
+}
 
 /* ─── Scroll Reveal ─── */
 .reveal {
