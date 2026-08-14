@@ -1,24 +1,9 @@
 # ruby_lang_nyc
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Mapping NYC's Ruby Community.
 
-Things you may want to cover:
+The great big city's a wonderous gem.
 
-* Ruby version
+## Contributing
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Help us document the devs, companies, and events that make NYC's Ruby Community.
