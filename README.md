@@ -8,4 +8,4 @@ The great big city's a wonderous gem.
 
 Help us document the big apple's ruby devs, companies, and events.
 
-Guidelines can be found here.
+Guidelines can be found [here](./docs/CONTRIBUTING.md).
