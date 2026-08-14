@@ -43,7 +43,7 @@ All fields are required:
 
 We are still deciding how to handle logos.
 
-In the meantime, feel free to add a real logo url or to use the placeholder value, "https://placehold.co/100".
+In the meantime, feel free to add a real logo url or to use the placeholder value "https://placehold.co/100".
 
 ## Events
 
