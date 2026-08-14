@@ -6,6 +6,6 @@ The great big city's a wonderous gem.
 
 ## Contributing
 
-Help us document NYC's ruby devs, companies, and events.
+Help us document the big apple's ruby devs, companies, and events.
 
 Guidelines can be found here.
