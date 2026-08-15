@@ -747,6 +747,7 @@ a { color: inherit; text-decoration: none; }
   .companies__grid { grid-template-columns: 1fr; }
   .people__grid   { grid-template-columns: 1fr; }
   .events__grid   { grid-template-columns: 1fr; }
-  .events__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .people__header   { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .events__header   { flex-direction: column; align-items: flex-start; gap: 1rem; }
   .companies__header { flex-direction: column; align-items: flex-start; gap: 1rem; }
 }
