@@ -8,9 +8,16 @@
       <span></span><span></span><span></span>
     </button>
     <nav class="nav__links" id="navLinks">
-      <a href="/devs" data-turbo="false">Devs</a>
       <a href="/companies" data-turbo="false">Companies</a>
       <a href="/events" data-turbo="false">Events</a>
+      <div class="nav__dropdown">
+        <button class="nav__dropdown-toggle" id="moreToggle" aria-expanded="false" aria-haspopup="true">
+          More <span class="nav__dropdown-caret">▾</span>
+        </button>
+        <div class="nav__dropdown-menu" id="moreMenu">
+          <a href="/devs" data-turbo="false">Devs</a>
+        </div>
+      </div>
       <a href="https://github.com/hackrb/ruby_lang_nyc" class="nav__cta" target="_blank">Contribute →</a>
     </nav>
   </div>

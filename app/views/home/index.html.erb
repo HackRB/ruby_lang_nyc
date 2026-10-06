@@ -137,6 +137,18 @@
       toggle.classList.toggle('nav__toggle--open');
     });
 
+    const moreToggle = document.getElementById('moreToggle');
+    const moreMenu   = document.getElementById('moreMenu');
+    moreToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = moreMenu.classList.toggle('nav__dropdown-menu--open');
+      moreToggle.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      moreMenu?.classList.remove('nav__dropdown-menu--open');
+      moreToggle?.setAttribute('aria-expanded', 'false');
+    });
+
     document.querySelectorAll('.hero__eyebrow, .hero__title-line, .hero__sub, .hero__actions, .hero__stats')
       .forEach((el, i) => {
         el.style.animationDelay = `${i * 0.13}s`;
