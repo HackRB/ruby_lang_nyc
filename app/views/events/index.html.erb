@@ -5,7 +5,7 @@
 <section class="events" id="events" style="padding-top: calc(var(--nav-h) + var(--pad));">
   <div class="events__inner">
     <div class="events__header">
-      <h2 class="events__title">Upcoming Events</h2>
+      <h2 class="events__title">Events</h2>
     </div>
     <div class="events__grid">
       <% @events.each do |event| %>
@@ -39,6 +39,18 @@
     toggle?.addEventListener('click', () => {
       links.classList.toggle('nav__links--open');
       toggle.classList.toggle('nav__toggle--open');
+    });
+
+    const moreToggle = document.getElementById('moreToggle');
+    const moreMenu   = document.getElementById('moreMenu');
+    moreToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = moreMenu.classList.toggle('nav__dropdown-menu--open');
+      moreToggle.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      moreMenu?.classList.remove('nav__dropdown-menu--open');
+      moreToggle?.setAttribute('aria-expanded', 'false');
     });
 
     const io = new IntersectionObserver((entries) => {
