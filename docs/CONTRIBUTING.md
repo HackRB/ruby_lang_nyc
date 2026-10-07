@@ -41,9 +41,9 @@ All fields are required:
 - home_page_url
 - careers_page_url
 
-We are still deciding how to handle logos.
+Set the logo_url to the placeholder value "https://placehold.co/100".
 
-In the meantime, feel free to add a real logo url or to use the placeholder value "https://placehold.co/100".
+The maintainers will add the actual value.
 
 ## Events
 
