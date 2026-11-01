@@ -1,0 +1,119 @@
+<% content_for :title, "Installing Ruby" %>
+
+<%= render 'navbar' %>
+
+<section class="guide" id="guide" style="padding-top: calc(var(--nav-h) + var(--pad));">
+  <div class="guide__inner">
+    <a href="<%= guides_path %>" class="guide__back" data-turbo="false">← All guides</a>
+    <h1 class="guide__title">Installing Ruby</h1>
+    <p class="guide__lede">
+      One recommended path for macOS and Linux: install mise, then use it to install Ruby.
+      On Windows, use the official ruby-lang.org instructions linked below.
+    </p>
+
+    <div class="guide__body">
+      <h2>1. Check for an existing Ruby</h2>
+      <p>Run the version check:</p>
+      <pre><code>ruby -v</code></pre>
+      <p>
+        If it prints a recent version, you can stop. If the command is missing or reports an old
+        system Ruby, continue with the steps below.
+      </p>
+
+      <h2>2. Install mise</h2>
+      <p>mise installs and manages Ruby versions for you.</p>
+      <pre><code>curl https://mise.run | sh</code></pre>
+
+      <h2>3. Activate mise</h2>
+      <p>Add mise to your shell, then restart your terminal. For zsh:</p>
+      <pre><code>echo 'eval "$(~/.local/bin/mise activate zsh)"' &gt;&gt; ~/.zshrc</code></pre>
+      <p>For bash:</p>
+      <pre><code>echo 'eval "$(~/.local/bin/mise activate bash)"' &gt;&gt; ~/.bashrc</code></pre>
+      <p>For fish:</p>
+      <pre><code>echo '~/.local/bin/mise activate fish | source' &gt;&gt; ~/.config/fish/config.fish</code></pre>
+
+      <h2>4. Install Ruby</h2>
+      <p>Install the latest stable Ruby and set it as your default:</p>
+      <pre><code>mise use --global ruby@latest</code></pre>
+      <p>This can take a few minutes while Ruby compiles.</p>
+
+      <h2>5. Verify the install</h2>
+      <pre><code>ruby -v</code></pre>
+      <p>
+        You should see a recent version, for example <code>ruby 4.0.5</code>. Use the latest stable
+        Ruby even if your output shows a newer release.
+      </p>
+
+      <h2>6. Troubleshooting</h2>
+      <h3>Missing build tools</h3>
+      <p>On macOS, install the command line tools:</p>
+      <pre><code>xcode-select --install</code></pre>
+      <p>On Debian or Ubuntu, install the compiler and Ruby build dependencies:</p>
+      <pre><code>sudo apt-get install -y build-essential libssl-dev libyaml-dev libreadline-dev zlib1g-dev libffi-dev</code></pre>
+
+      <h3>OpenSSL mismatch on macOS</h3>
+      <p>
+        If the Ruby build fails with an OpenSSL error after Homebrew installs a newer OpenSSL,
+        build Ruby against <code>openssl@3</code> instead:
+      </p>
+      <pre><code>brew install openssl@3
+RUBY_CONFIGURE_OPTS="--with-openssl-dir=$(brew --prefix openssl@3)" mise install ruby@latest --force</code></pre>
+
+      <h2>7. Other platforms and managers</h2>
+      <p>
+        For Windows, other platforms, and alternative version managers, see the
+        <a href="https://www.ruby-lang.org/en/documentation/installation/">official Ruby installation guide</a>.
+        If you already use rbenv, keep using it:
+        <a href="https://github.com/rbenv/rbenv#installation">rbenv installation</a>.
+      </p>
+
+      <h2>8. Get help</h2>
+      <p>
+        Stuck? Come to the <a href="<%= events_path %>" data-turbo="false">next Ruby Lang NYC event</a>
+        and ask in person.
+      </p>
+      <!-- Placeholder: replace with the community Slack invite URL. -->
+      <p>
+        You can also ask questions in the
+        <a href="https://join.slack.com/t/rubylangnyc/shared_invite/zt-4evyxc2cl-x4SgFOC486_j_CFHBCZmwg">community Slack</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+<%= render 'footer' %>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  (function() {
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      links.classList.toggle('nav__links--open');
+      toggle.classList.toggle('nav__toggle--open');
+    });
+
+    const moreToggle = document.getElementById('moreToggle');
+    const moreMenu   = document.getElementById('moreMenu');
+    moreToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = moreMenu.classList.toggle('nav__dropdown-menu--open');
+      moreToggle.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      moreMenu?.classList.remove('nav__dropdown-menu--open');
+      moreToggle?.setAttribute('aria-expanded', 'false');
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(e.target.parentNode.children).indexOf(e.target);
+          e.target.style.transitionDelay = `${(idx % 3) * 0.08}s`;
+          e.target.classList.add('revealed');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(c => io.observe(c));
+  })()
+</script>
