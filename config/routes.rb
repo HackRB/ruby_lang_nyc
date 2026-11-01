@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   get "/devs", to: "people#index"
   resources :companies, only: [ :index ]
   resources :events, only: [ :index ]
+  resources :guides, only: [ :index, :show ]
 
   # Defines the root path route ("/")
   root "home#index"

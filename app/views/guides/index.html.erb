@@ -1,0 +1,57 @@
+<% content_for :title, "Guides" %>
+
+<%= render 'navbar' %>
+
+<section class="guides" id="guides" style="padding-top: calc(var(--nav-h) + var(--pad));">
+  <div class="guides__inner">
+    <div class="guides__header">
+      <h2 class="guides__title">Guides</h2>
+    </div>
+    <div class="guides__grid">
+      <% @guides.each do |guide| %>
+        <article class="guide-card reveal">
+          <h3 class="guide-card__title"><%= guide.title %></h3>
+          <p class="guide-card__desc"><%= guide.description %></p>
+          <a href="<%= guide_path(guide.slug) %>" class="guide-card__link" data-turbo="false">Read the guide →</a>
+        </article>
+      <% end %>
+    </div>
+  </div>
+</section>
+
+<%= render 'footer' %>
+
+<script nonce="<%= request.content_security_policy_nonce %>">
+  (function() {
+    const toggle = document.getElementById('navToggle');
+    const links  = document.getElementById('navLinks');
+    toggle?.addEventListener('click', () => {
+      links.classList.toggle('nav__links--open');
+      toggle.classList.toggle('nav__toggle--open');
+    });
+
+    const moreToggle = document.getElementById('moreToggle');
+    const moreMenu   = document.getElementById('moreMenu');
+    moreToggle?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      const open = moreMenu.classList.toggle('nav__dropdown-menu--open');
+      moreToggle.setAttribute('aria-expanded', open);
+    });
+    document.addEventListener('click', () => {
+      moreMenu?.classList.remove('nav__dropdown-menu--open');
+      moreToggle?.setAttribute('aria-expanded', 'false');
+    });
+
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const idx = Array.from(e.target.parentNode.children).indexOf(e.target);
+          e.target.style.transitionDelay = `${(idx % 3) * 0.08}s`;
+          e.target.classList.add('revealed');
+          io.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(c => io.observe(c));
+  })()
+</script>
